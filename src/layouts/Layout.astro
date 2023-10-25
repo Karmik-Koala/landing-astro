@@ -2,26 +2,74 @@
 interface Props {
 	title: string;
 }
-
+import Navbar from '../components/Navbar.astro'
+import Footer from '../components/Footer.astro'
 const { title } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MealMate</title>
+  <link rel="stylesheet" href="./index.css">
+  <link rel="icon" type="image/x-icon" href="./assets/LogoFinal.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Glory&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+    crossorigin="anonymous">
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
 	<body>
+		<Navbar />
 		<slot />
+		<Footer/>
 	</body>
 </html>
 <style is:global>
-	:root {
-	
-	}
+:root {
+  --color-grandis: #ffd68b;
+  --color-white-rock: #e5e3cb;
+  --color-faded-jade: #428b8b;
+  --color-salmon: #fd926a;
+  --color-thunderbird: #cd391b;
+  --color-ferra: #5c4943;
+  --color-white: #fff;
+  --color-gray: #e2e2e2;
+  --color-gray-light: #f0f0f0;
+  --font-family-content: "Mukta", sans-serif;
+  --font-family-title: "Glory", sans-serif;
+  --font-size-xs: 1rem;
+  --font-size-sm: 1.1rem;
+  --font-size-md: 1.3rem;
+  --font-size-ns: 1.5rem;
+  --font-size-normal: 1.8rem;
+  --font-size-nl: 2rem;
+  --font-size-lg: 3rem;
+  --font-size-xl: 5rem;
+  --slide-transform: 0;
+  --slider-size: 500px;
+  --transition: transform 1s;
+  --footer-height: 150px;
+  --lateral-margin: 24px;
+  --slider-element-heigth: 300px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  background: var(--color-white-rock);
+  margin: 0;
+  padding: 0;
+}
 </style>
