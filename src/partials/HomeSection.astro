@@ -1,0 +1,86 @@
+---
+
+---
+
+<section class="wrap">
+  <div class="wrap-text">
+    <h1 class="title-home">Explore the flavors of the world</h1>
+    <p class="text-home">
+      Your friendly guide to discovering delicious and healthy recipes with
+      nutritional information just a click away.
+    </p>
+    <button class="button-home">Go to app</button>
+
+  </div>
+</section>
+
+<style>
+  .wrap {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, rgb(255 255 255 / 50%), rgb(255 255 255 / 50%)), url("home.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 40px;
+
+  & .wrap-text {
+    text-align: center;
+    text-shadow: 0 0 2px rgb(255 255 255 / 60%);
+
+    /* width: 50%; */
+
+    & .title-home {
+      padding: 30px 0;
+      color: var(--color-ferra);
+      font-family: var(--font-family-title);
+      font-size: var(--font-size-lg);
+      font-weight: bold;
+    }
+
+    & .text-home {
+      padding: 0 0 30px;
+      color: var(--color-ferra);
+      font-family: var(--font-family-title);
+      font-size: var(--font-size-ns);
+      font-weight: bold;
+    }
+
+    & .button-home {
+      background-color: var(--color-grandis);
+      border-radius: 25px;
+      padding: 10px;
+      box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
+      font-family: var(--font-family-title);
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 18px;
+    }
+  }
+}
+
+@media screen and (width >= 1024px) {
+  .wrap .wrap-text {
+    width: 60%;
+  }
+}
+
+@media screen and (width >= 2560px) {
+  /* Estilos para pantallas 4K y superiores */
+  .wrap .wrap-text {
+    & .title-home {
+      font-size: var(--font-size-xl);
+    }
+
+    & .text-home {
+      font-size: var(--font-size-lg);
+    }
+
+    .button-go-app {
+      font-size: var(--font-size-normal);
+    }
+  }
+}
+</style>

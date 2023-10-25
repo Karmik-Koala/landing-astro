@@ -1,0 +1,202 @@
+---
+
+---
+
+    <section>
+      <div class="title-slider">
+        <h2>Weekly recipes</h2>
+        <span>You can even see the recipes that have been voted most favorites among users during the last week</span>
+      </div>
+      <div id="slider-container" class="slider-container">
+        <div class="slider" id="slider">
+          <div class="slider__element"><img src="https://picsum.photos/700/401?random" alt="" /></div>
+          <div class="slider__element">
+            <img src="https://picsum.photos/700/402?random" alt="" />
+          </div>
+          <div class="slider__element"><img src="https://picsum.photos/700/403?random" alt="" /></div>
+          <div class="slider__element"><img src="https://picsum.photos/700/404?random" alt="" /></div>
+        </div>
+
+        <button id="button-left" class="button slider-buttons slider-buttons--left">&lt;</button>
+        <button id="button-right" class="button slider-buttons slider-buttons--right">&gt;</button>
+      </div>
+    </section>
+
+    <script>
+const slider = document.getElementById("slider");
+const buttonLeft = document.getElementById("button-left");
+const buttonRight = document.getElementById("button-right");
+const sliderElements = document.querySelectorAll(".slider__element");
+const rootStyles = document.documentElement.style;
+let slideCounter = 0;
+let isInTransition = false;
+const DIRECTION = {
+  RIGHT: "RIGHT",
+  LEFT: "LEFT"
+};
+
+const getTransformValue = () =>
+  Number(rootStyles.getPropertyValue("--slide-transform").replace("px", ""));
+
+const reorderSlide = () => {
+  const transformValue = getTransformValue();
+  rootStyles.setProperty("--transition", "none");
+  if (slideCounter === sliderElements.length - 1) {
+    slider.appendChild(slider.firstElementChild);
+    rootStyles.setProperty(
+      "--slide-transform",
+      `${transformValue + sliderElements[slideCounter].scrollWidth}px`
+    );
+    slideCounter--;
+  } else if (slideCounter === 0) {
+    slider.prepend(slider.lastElementChild);
+    rootStyles.setProperty(
+      "--slide-transform",
+      `${transformValue - sliderElements[slideCounter].scrollWidth}px`
+    );
+    slideCounter++;
+  }
+
+  isInTransition = false;
+};
+
+const moveSlide = direction => {
+  if (isInTransition) return;
+  const transformValue = getTransformValue();
+  rootStyles.setProperty("--transition", "transform 1s");
+  isInTransition = true;
+  if (direction === DIRECTION.LEFT) {
+    rootStyles.setProperty(
+      "--slide-transform",
+      `${transformValue + sliderElements[slideCounter].scrollWidth}px`
+    );
+    slideCounter--;
+  } else if (direction === DIRECTION.RIGHT) {
+    rootStyles.setProperty(
+      "--slide-transform",
+      `${transformValue - sliderElements[slideCounter].scrollWidth}px`
+    );
+    slideCounter++;
+  }
+};
+
+const autoAdvance = () => {
+  moveSlide(DIRECTION.RIGHT);
+};
+
+buttonRight.addEventListener("click", () => moveSlide(DIRECTION.RIGHT));
+buttonLeft.addEventListener("click", () => moveSlide(DIRECTION.LEFT));
+
+slider.addEventListener("transitionend", reorderSlide);
+
+const interval = setInterval(autoAdvance, 3000);
+
+buttonRight.addEventListener("click", () => {
+  clearInterval(interval);
+});
+buttonLeft.addEventListener("click", () => {
+  clearInterval(interval);
+});
+
+reorderSlide();
+    </script>
+
+    <style>
+.title-slider {
+  text-align: center;
+  font-family: var(--font-family-title);
+  color: #5c4943;
+  margin-bottom: 30px;
+
+  & h2 {
+    padding: 15px 0;
+  }
+
+  & span {
+    font-size: var(--font-size-md);
+  }
+}
+
+.slider-container {
+  position: relative;
+  width: var(--slider-size);
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  margin-bottom: 40px;
+
+  & .slider {
+    display: flex;
+    width: var(--slider-size);
+    transform: translateX(var(--slide-transform));
+    transition: var(--transition);
+  }
+
+  & .slider__element {
+    min-width: 100%;
+    height: var(--slider-element-heigth);
+    font-size: 3rem;
+    text-align: center;
+    line-height: 300px;
+
+    & img {
+      max-width: 100%;
+    }
+  }
+}
+
+.slider-buttons {
+  position: absolute;
+  height: 100px;
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.slider-buttons--left {
+  clip-path: polygon(0 0, 100% 15%, 100% 79%, 0 99%);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.slider-buttons--right {
+  clip-path: polygon(0 11%, 100% 0, 100% 100%, 0 87%);
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+}
+
+.button {
+  --button-size: 35px;
+
+  background: none;
+  border: none;
+  background-color: var(--color-ferra);
+  width: var(--button-size);
+  height: calc(var(--button-size) + 40px);
+  cursor: pointer;
+  color: var(--color-gray);
+  font-size: 1.5rem;
+}
+
+@media screen and (width >= 768px) {
+  .title-slider h2 {
+    font-size: var(--font-size-nl);
+  }
+
+  .title-slider span {
+    font-size: var(--font-size-md);
+  }
+}
+
+@media screen and (width >= 2560px) {
+  .title-slider h2 {
+    font-size: var(--font-size-lg);
+  }
+
+  .title-slider span {
+    font-size: var(--font-size-normal);
+  }
+}
+    </style>
+

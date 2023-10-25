@@ -1,0 +1,64 @@
+---
+const { cardHeader } = Astro.props;
+---
+
+<div class="cards-square">
+  <h3 class="cards-text-title">{cardHeader}</h3>
+  <p class="cards-text-body">
+    <slot />
+  </p>
+</div>
+
+<style>
+  .cards-square {
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: var(--color-faded-jade);
+    border-radius: 10px;
+    text-align: center;
+    height: 100%;
+
+    & .cards-text-title {
+      font-family: var(--font-family-title);
+      font-size: var(--font-size-md);
+      font-weight: bold;
+      color: var(--color-grandis);
+      margin-bottom: 20px;
+    }
+
+    & .cards-text-body {
+      font-family: var(--font-family-content);
+      font-size: var(--font-size-sm);
+      color: var(--color-grandis);
+    }
+  }
+
+  @media screen and (width >= 768px) {
+    .cards-square {
+      margin: auto;
+      max-width: 400px;
+    }
+  }
+
+  @media screen and (width >= 1024px) {
+    .cards-square {
+      margin: auto;
+      max-width: 300px;
+    }
+  }
+
+  @media screen and (width >= 1200px) {
+  }
+
+  @media screen and (width >= 2560px) {
+    .cards-square {
+      & .cards-text-title {
+        font-size: var(--font-size-normal);
+      }
+
+      & .cards-text-body {
+        font-size: var(--font-size-ns);
+      }
+    }
+  }
+</style>

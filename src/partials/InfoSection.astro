@@ -1,0 +1,205 @@
+---
+
+---
+
+<section class="info-container">
+      <h2 class="info-title-text">All kind of information</h2>
+      <span class="info-description">This application has been designed with the intention of facilitating the creation
+        of recipes along with
+        their associated nutritional information.</span>
+
+      <div class="info-card-container">
+        <div class="card-image">
+          <img src="MeatImage.jpg" alt="Meat Image">
+        </div>
+        <div class="card-content">
+          <h2 class="title-recipee">Meat Stock</h2>
+          <div class="recipee">
+            <p>Marinate 500g of beef with a mixture of lime juice, garlic, and cilantro. Then, grill it until tender and
+              slightly golden. Slice the meat into thin strips and serve it in warm corn tortillas. Garnish with onion,
+              cilantro, and fresh tomato salsa. Delicious grilled steak tacos ready in minutes!</p>
+          </div>
+          <div class="nutritional-info-container">
+            <div class="kcal-box">
+              <span>10 kcal</span>
+            </div>
+            <div class="nutritional-text">
+              <span class="protein">🟢 PROTEIN: 1 g</span>
+              <span class="fat">🟡 FAT: 15 g</span>
+              <span class="carb">🔴 CARB: 5 g</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="quote">
+        <span>* this is a recipee example</span>
+      </div>
+    </section>
+
+    <style>
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-ferra);
+
+  & .info-title-text {
+    font-family: var(--font-family-title);
+    font-size: var(--font-size-lg);
+    font-weight: bold;
+    padding: 15px 0;
+  }
+
+  & .info-description {
+    font-family: var(--font-family-title);
+    font-size: var(--font-size-normal);
+    text-align: center;
+  }
+}
+
+.info-card-container {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  width: 50%;
+  height: 100%;
+  margin-top: 50px;
+  padding: 10px;
+  background-color: var(--color-white);
+  border-radius: 10px;
+  font-family: var(--font-family-content);
+
+  & .card-image {
+    background: var(--color-white);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 10px 20px 0 10px;
+    width: 30%;
+
+    & img {
+      border-top-left-radius: 10px;
+      box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 40%);
+      width: 100%;
+    }
+  }
+
+  & .card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 0 15px 15px 0;
+    width: 70%;
+
+    & .title-recipee {
+      font-size: var(--font-size-normal);
+      margin: 0;
+    }
+
+    & .recipee {
+      font-size: var(--font-size-md);
+      text-align: start;
+      margin-bottom: 10px;
+    }
+
+    & .nutritional-info-container {
+      display: flex;
+      flex-direction: row;
+      background: var(--color-gray-light);
+      width: 100%;
+
+      & .kcal-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: var(--font-size-normal);
+        width: 150px;
+        margin: 10px;
+        background: var(--color-gray);
+        color: var(--color-ferra);
+      }
+
+      & .nutritional-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        font-size: var(--font-size-md);
+        padding: 10px;
+      }
+    }
+  }
+}
+
+.quote {
+  display: flex;
+  justify-content: flex-start;
+  align-self: center;
+  width: 50%;
+  font-family: var(--font-family-content);
+}
+
+@media screen and (width < 1200px) {
+  .info-container {
+    & .info-title-text {
+      font-size: var(--font-size-nl);
+    }
+
+    & .info-description {
+      margin: auto;
+      width: 80%;
+      font-size: var(--font-size-md);
+    }
+  }
+
+  .info-card-container {
+    & p {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 350px;
+    }
+
+    & .kcal-box {
+      & span {
+        font-size: var(--font-size-normal);
+      }
+    }
+
+    & .nutritional-text {
+      & span {
+        font-size: var(--font-size-xs);
+      }
+    }
+  }
+}
+
+@media screen and (width >= 1200px) {
+  .info-container {
+    & .info-title-text {
+      font-size: var(--font-size-nl);
+    }
+
+    & .info-description {
+      margin: auto;
+      width: 80%;
+      font-size: var(--font-size-md);
+    }
+  }
+}
+
+@media screen and (width >= 2560px) {
+  .info-container {
+    & .info-title-text {
+      font-size: var(--font-size-lg);
+    }
+
+    & .info-description {
+      margin: auto;
+      width: 80%;
+      font-size: var(--font-size-normal);
+    }
+  }
+}
+    </style>

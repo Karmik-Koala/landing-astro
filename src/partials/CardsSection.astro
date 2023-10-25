@@ -1,0 +1,80 @@
+---
+import Card from '../components/Card.astro'
+---
+
+ <section class="info-cards">
+  <h2 class="cards-title-text"> Discover a variety of nutritious recipes</h2>
+  <span class="cards-description">Explore and Enjoy culinary diversity</span>
+
+  <div class="cards-container">
+    <Card cardHeader="Recipes for all tastes">Explore a wide variety of recipes to suit different dietary preferences, from vegetarian to gluten-free, to make sure there's always something you like.
+    </Card>
+    <Card cardHeader="Detailed nutritional information">Get detailed information on the nutritional values of each recipe, including calories, protein, carbohydrates and fat, to make more informed food choices.
+    </Card>
+    <Card cardHeader="Save your Favorites">Organize your favorite recipes in one convenient place for quick and easy access, allowing you to keep track of your tastiest and healthiest culinary discovery.
+    </Card>
+  </div>
+</section>
+
+<style>
+  .info-cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-top: 50px;
+
+    /* padding: 40px; */
+    color: var(--color-ferra);
+
+    & .cards-title-text {
+      font-family: var(--font-family-title);
+      font-size: var(--font-size-nl);
+      font-weight: bold;
+      padding: 15px 0;
+    }
+
+    & .cards-description {
+      font-family: var(--font-family-title);
+      font-size: var(--font-size-md);
+    }
+  }
+    .cards-container {
+    padding: 40px 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    }
+
+    @media screen and (width >= 768px) {
+    .cards-container {
+      padding: 40px 50px;
+    }
+    }
+
+    @media screen and (width >= 1024px) {
+      .cards-container {
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: stretch;
+        padding: 40px 100px;
+      }
+    }
+
+  @media screen and (width >= 1200px) {
+    .cards-container {
+      padding: 40px 200px;
+    }
+  }
+
+  @media screen and (width >= 2560px) {
+    .info-cards {
+      & .cards-title-text {
+        font-size: var(--font-size-lg);
+      }
+
+      & .cards-description {
+        font-size: var(--font-size-normal);
+      }
+    }
+  }
+</style>
