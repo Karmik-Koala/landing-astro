@@ -118,8 +118,9 @@ reorderSlide();
 }
 
 .slider-container {
+      --slider-size: 80vw;
   position: relative;
-  /* width: var(--slider-size); */
+  width: var(--slider-size);
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
@@ -182,6 +183,10 @@ reorderSlide();
 }
 
 @media screen and (width >= 768px) {
+
+  .slider-container {
+    --slider-size: 500px;
+  }
   .title-slider h2 {
     font-size: var(--font-size-nl);
   }
