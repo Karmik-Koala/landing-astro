@@ -104,11 +104,13 @@ reorderSlide();
     <style>
 .title-slider {
   text-align: center;
-  font-family: var(--font-family-title);
   color: #5c4943;
-  margin-bottom: 30px;
+  font-family: var(--font-family-title);
+  margin: auto;
+  width: 80%;
 
   & h2 {
+    font-size: var(--font-size-nl);
     padding: 15px 0;
   }
 
@@ -125,6 +127,7 @@ reorderSlide();
   margin-right: auto;
   overflow: hidden;
   margin-bottom: 40px;
+  margin-top: 40px;
 
   & .slider {
     display: flex;
@@ -180,6 +183,14 @@ reorderSlide();
   cursor: pointer;
   color: var(--color-gray);
   font-size: 1.5rem;
+}
+
+@media screen and (width >= 768px) {
+  .title-slider {
+    font-size: var(--font-size-md);
+    margin: auto;
+    width: 80%;
+  }
 }
 
 @media screen and (width >= 768px) {
